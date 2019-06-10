@@ -40,7 +40,27 @@ The APT investigator tries to identify, which threat actor is attacking you by u
 The Lateral Movement Investigator uses the information of triggered alerts in combination with firewall data in order to find lateral movement. It identifies, if the same detection rule was triggered for two host and there was a network connection between them:
 ![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_lateral_movement_investigator.png)
 
-### Splunk Sigma Hunting Whitelist App
+### Sigma Hunting Whitelist App for Splunk
+The Sigma Hunting Whitelist App contains the whitelist for your detection rules. That helps the SOC Analysts to tune the detection rules and define exceptions/whitelists:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_whitelist_app.png)
+
+
+## Installation
+Installation steps are described in detail in the [wiki](https://github.com/P4T12ICK/Sigma-Hunting-App/wiki/Installation-Sigma-Hunting-App).
+
+## Credits
+This is a private repository developed by Patrick Bareiss (Twitter: [@bareiss_patrick](https://twitter.com/bareiss_patrick)).
+
+## Thank you
+I need to say thank you to some people, who supported me directly and indirectly:
+- Leandra Bareiss: for being so patient with me.
+- Florian Roth / Thomas Patzke: for developing the great tool Sigma
+- Olaf Hartong: for his great Threat Hunting App which inspired me
+- Freddy Dezeure: for supporting me
+- Andrii Bezverkhyi: for supporting with Splunk questions
+- Chris Long: for Detection Lab
+- SwiftOnSecrity: for the Sysmon Config which I used in all of my tests
+
 
 
 
