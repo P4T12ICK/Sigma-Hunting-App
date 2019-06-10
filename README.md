@@ -12,9 +12,15 @@ The Sigma Hunting App for Splunk provides the following features:
 - Whitelist App to adapt the detection rules to your enviroment
 
 ### Update of Sigma Detection Rules
+The Sigma detection rules can be updated from the Sigma Hunting App:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_update.png)
+
+The remote Git repository can be configured through the Set Up view of the Sigma Hunting App:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_configuration.png)
 
 
 ### Store triggered Detection Rules in a dedicated Index
+The triggered Detection Rules are stored in the threat-hunting index:
 
 
 ### Enrichment with Mitre ATT&CK Data
