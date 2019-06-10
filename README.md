@@ -21,13 +21,24 @@ The remote Git repository can be configured through the Set Up view of the Sigma
 
 ### Store triggered Detection Rules in a dedicated Index
 The triggered Detection Rules are stored in the threat-hunting index:
-
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_threat_hunting_index.png)
 
 ### Enrichment with Mitre ATT&CK Data
-
+The triggered Detection Rules in the threat-hunting index are enriched with Mitre ATT&CK Data such as Technique, Tactics, ID, Threat Actors.
 
 ### Providing Investigation Dashbaords
+There exist several dashbaord for investigations.
+The security posture dashboard gives you an overview about the triggered detection rules categorized into Mitre ATT&CK Tactics:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_security_posture_dashboard.png)
 
+The Host Investigator supports you to perfrom investigation for a specific host. It shows the different triggered detection rules in a timeline chart:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_host_investigator.png)
+
+The APT investigator tries to identify, which threat actor is attacking you by using the information of the triggered detection rules:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_APT_investigator.png)
+
+The Lateral Movement Investigator uses the information of triggered alerts in combination with firewall data in order to find lateral movement. It identifies, if the same detection rule was triggered for two host and there was a network connection between them:
+![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_lateral_movement_investigator.png)
 
 ### Splunk Sigma Hunting Whitelist App
 
