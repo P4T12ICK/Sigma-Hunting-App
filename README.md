@@ -55,11 +55,11 @@ This is a private repository developed by Patrick Bareiss (Twitter: [@bareiss_pa
 I need to say thank you to some people, who supported me directly and indirectly:
 - Leandra Bareiss: for being so patient with me.
 - Florian Roth / Thomas Patzke: for developing the great tool Sigma
-- Olaf Hartong: for his great Threat Hunting App which inspired me
+- Olaf Hartong: for his great Threat Hunting App, which inspired me
 - Freddy Dezeure: for supporting me
 - Andrii Bezverkhyi: for supporting with Splunk questions
 - Chris Long: for Detection Lab
-- SwiftOnSecrity: for the Sysmon Config which I used in all of my tests
+- SwiftOnSecrity: for the Sysmon Config, which I used in all of my tests
 
 
 
