@@ -48,6 +48,9 @@ The Sigma Hunting Whitelist App contains the whitelist for your detection rules.
 ## Installation
 Installation steps are described in detail in the [wiki](https://github.com/P4T12ICK/Sigma-Hunting-App/wiki/Installation-Sigma-Hunting-App).
 
+## Contribution
+Please report all issues, that we can improve the Sigma Hunting App together. If you have some feature request, feel free to add them and we will figure it out together.
+
 ## Credits
 This is a private repository developed by Patrick Bareiss (Twitter: [@bareiss_patrick](https://twitter.com/bareiss_patrick)).
 
