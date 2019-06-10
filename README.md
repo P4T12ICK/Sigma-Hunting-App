@@ -9,6 +9,7 @@ The Sigma Hunting App for Splunk provides the following features:
 - Store triggered detection rules in a dedicated index
 - Enrichment of triggered detection rules with data from the [Mitre ATT&CK Matrix](https://attack.mitre.org/matrices/enterprise/)
 - Providing powerfull dashboards for investigation: security posture, host investigator, APT investigator, lateral movement investigator
+- Whitelist App to adapt the detection rules to your enviroment
 
 ### Update of Sigma Detection Rules
 
@@ -20,6 +21,9 @@ The Sigma Hunting App for Splunk provides the following features:
 
 
 ### Providing Investigation Dashbaords
+
+
+### Splunk Sigma Hunting Whitelist App
 
 
 
