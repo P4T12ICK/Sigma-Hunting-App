@@ -1,0 +1,20 @@
+<setup>
+  <block title="Configure This App">
+    <text>Configure the remote repository for the detection rules.</text>
+  </block>
+
+  <block title="Repository" endpoint="mycustom/customendpoint" entity="settings">
+    <text>Use either the https or ssh repository clone url. Keep the Folder field empty if you want to use the whole repository.</text>
+
+      <input field="repository">
+        <label>Repository</label>
+        <type>text</type>
+      </input>
+
+      <input field="folder">
+        <label>Folder</label>
+        <type>text</type>
+      </input>
+
+  </block>
+</setup>

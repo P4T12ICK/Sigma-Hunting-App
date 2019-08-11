@@ -1,0 +1,73 @@
+<form>
+  <label>APT Investigator</label>
+  <fieldset submitButton="false">
+    <input type="time" token="time_picker">
+      <label>Time Range Picker</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Countries of APT Groups by Triggered Alerts</title>
+      <map>
+        <title>Triggered Alerts -&gt; Mitre ATT&amp;CK Technique -&gt; potential APT Groups -&gt; Countries</title>
+        <search>
+          <query>`threat-hunting-index` | stats dc(name) AS "Distinct Count" by threat_actors | sort - "Distinct Count" |  lookup mitre_enrichment_apt_country threat_actors AS threat_actors | search country=* | stats sum("Distinct Count") AS "Distinct Count" by country | sort - "Distinct Count" | geom geo_countries featureIdField="country"</query>
+          <earliest>$time_picker.earliest$</earliest>
+          <latest>$time_picker.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="mapping.choroplethLayer.colorBins">9</option>
+        <option name="mapping.choroplethLayer.colorMode">auto</option>
+        <option name="mapping.choroplethLayer.maximumColor">0x006D9C</option>
+        <option name="mapping.choroplethLayer.minimumColor">0x62b3b2</option>
+        <option name="mapping.choroplethLayer.neutralPoint">0</option>
+        <option name="mapping.choroplethLayer.shapeOpacity">0.75</option>
+        <option name="mapping.choroplethLayer.showBorder">1</option>
+        <option name="mapping.data.maxClusters">100</option>
+        <option name="mapping.legend.placement">bottomright</option>
+        <option name="mapping.map.center">(50,0)</option>
+        <option name="mapping.map.panning">1</option>
+        <option name="mapping.map.scrollZoom">0</option>
+        <option name="mapping.map.zoom">2</option>
+        <option name="mapping.markerLayer.markerMaxSize">50</option>
+        <option name="mapping.markerLayer.markerMinSize">10</option>
+        <option name="mapping.markerLayer.markerOpacity">0.8</option>
+        <option name="mapping.showTiles">1</option>
+        <option name="mapping.tileLayer.maxZoom">7</option>
+        <option name="mapping.tileLayer.minZoom">0</option>
+        <option name="mapping.tileLayer.tileOpacity">1</option>
+        <option name="mapping.type">choropleth</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </map>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Distinct Count of Triggered Rules by APT Group</title>
+      <table>
+        <search>
+          <query>`threat-hunting-index` | stats values(attack_technique) AS "Attack Techniques" values(attack_tactics) AS "Attack Tactics" values(name) AS Rules dc(name) AS "Distinct Count" by threat_actors |  lookup mitre_enrichment_apt_country threat_actors AS threat_actors | sort - "Distinct Count" | rename country AS Country | table threat_actors "Attack Techniques" "Attack Tactics" Rules Country  "Distinct Count"</query>
+          <earliest>$time_picker.earliest$</earliest>
+          <latest>$time_picker.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">10</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</form>

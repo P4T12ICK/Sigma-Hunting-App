@@ -1,0 +1,81 @@
+<form>
+  <label>Lateral Movement Investigator</label>
+  <fieldset submitButton="false">
+    <input type="time" token="token_time">
+      <label>Time Range Picker</label>
+      <default>
+        <earliest>-60m@m</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="text" token="token_host">
+      <label>orig_host</label>
+      <prefix>orig_host="</prefix>
+      <suffix>"</suffix>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Potential Lateral Movement Topology</title>
+      <viz type="network_topology.network_topology">
+        <search>
+          <query>`firewall-index` | table src_ip dest_ip | join max=0 src_ip [search `threat-hunting-index` $token_host$ | lookup dnslookup clienthost AS orig_host OUTPUT clientip AS src_ip | fields src_ip,name,orig_host] | search [search `threat-hunting-index` NOT $token_host$ | lookup dnslookup clienthost AS orig_host OUTPUT clientip AS dest_ip | table dest_ip,name] | stats count by src_ip, orig_host, dest_ip, name | eval link="link1" | table src_ip orig_host dest_ip name link</query>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="network_topology.network_topology.drilldown">false</option>
+        <option name="network_topology.network_topology.link1">link1</option>
+        <option name="network_topology.network_topology.link1Color">#f1813f</option>
+        <option name="network_topology.network_topology.link1Dashed">false</option>
+        <option name="network_topology.network_topology.link1Label">Potential Lateral Movement</option>
+        <option name="network_topology.network_topology.link2">link2</option>
+        <option name="network_topology.network_topology.link2Color">#00b050</option>
+        <option name="network_topology.network_topology.link2Dashed">true</option>
+        <option name="network_topology.network_topology.link2Label">Link 2</option>
+        <option name="network_topology.network_topology.link3">link3</option>
+        <option name="network_topology.network_topology.link3Color">#a5a5a5</option>
+        <option name="network_topology.network_topology.link3Dashed">false</option>
+        <option name="network_topology.network_topology.link3Label">Link 3</option>
+        <option name="network_topology.network_topology.link4">link4</option>
+        <option name="network_topology.network_topology.link4Color">#a5a5a5</option>
+        <option name="network_topology.network_topology.link4Dashed">true</option>
+        <option name="network_topology.network_topology.link4Label">Link 4</option>
+        <option name="network_topology.network_topology.link5">link5</option>
+        <option name="network_topology.network_topology.link5Color">#c00000</option>
+        <option name="network_topology.network_topology.link5Dashed">false</option>
+        <option name="network_topology.network_topology.link5Label">Link 5</option>
+        <option name="network_topology.network_topology.unfocusOpacity">0</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </viz>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Potential Lateral Movement Table</title>
+      <table>
+        <search>
+          <query>`firewall-index` | table src_ip dest_ip | join max=0 src_ip [search `threat-hunting-index` $token_host$ | lookup dnslookup clienthost AS orig_host OUTPUT clientip AS src_ip | fields src_ip,name,orig_host] | search [search `threat-hunting-index` NOT $token_host$ | lookup dnslookup clienthost AS orig_host OUTPUT clientip AS dest_ip | table dest_ip,name] | lookup dnslookup clientip AS dest_ip OUTPUT clienthost AS dest_host | stats count by name,src_ip,orig_host,dest_ip,dest_host</query>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <drilldown>
+          <link target="_blank">search?q=%60threat-hunting-index%60%20name=%22$row.name$%22%20orig_host=%22$row.orig_host$%22%20OR%20orig_host=%22$row.dest_host$%22&amp;earliest=$token_time.earliest$&amp;latest=$token_time.latest$</link>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+</form>

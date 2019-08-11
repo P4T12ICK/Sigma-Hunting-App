@@ -1,0 +1,19 @@
+[settings/settings]
+version = 7.3.1
+modtime = 1565509679.016993000
+
+[app/install/is_configured]
+version = 7.3.1
+modtime = 1565509679.560866000
+
+[views/apt_investigator]
+version = 7.2.4.2
+modtime = 1559937352.634356000
+
+[views/lateral_movement_investigator]
+version = 7.2.4.2
+modtime = 1560156366.953446000
+
+[app/install/install_source_checksum]
+version = 7.3.1
+modtime = 1565509630.850706000

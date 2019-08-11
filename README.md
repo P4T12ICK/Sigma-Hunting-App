@@ -9,7 +9,6 @@ The Sigma Hunting App for Splunk provides the following features:
 - Store triggered detection rules in a dedicated index
 - Enrichment of triggered detection rules with data from the [Mitre ATT&CK Matrix](https://attack.mitre.org/matrices/enterprise/)
 - Providing powerfull dashboards for investigation: security posture, host investigator, APT investigator, lateral movement investigator
-- Whitelist App to adapt the detection rules to your enviroment
 
 ### Update of Sigma Detection Rules
 The Sigma detection rules can be updated from the Sigma Hunting App:
@@ -39,10 +38,6 @@ The APT investigator tries to identify, which threat actor is attacking you by u
 
 The Lateral Movement Investigator uses the information of triggered alerts in combination with firewall data in order to find lateral movement. It identifies, if the same detection rule was triggered for two host and there was a network connection between them:
 ![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_lateral_movement_investigator.png)
-
-### Sigma Hunting Whitelist App for Splunk
-The Sigma Hunting Whitelist App contains the whitelist for your detection rules. That helps the SOC Analysts to tune the detection rules and define exceptions/whitelists:
-![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_whitelist_app.png)
 
 
 ## Installation

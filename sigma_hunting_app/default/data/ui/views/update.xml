@@ -1,0 +1,10 @@
+<dashboard script="run_action.js">
+  <label>Update</label>
+  <row>
+    <panel>
+      <html>
+         <button class="btn btn-primary button1">Update Detection Rules</button>
+       </html>
+    </panel>
+  </row>
+</dashboard>

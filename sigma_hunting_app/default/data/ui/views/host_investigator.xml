@@ -1,0 +1,71 @@
+<form>
+  <label>Host Investigator</label>
+  <fieldset submitButton="false">
+    <input type="time" token="token_time">
+      <label>Time Range Picker</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="text" token="token_host" searchWhenChanged="true">
+      <label>Host</label>
+      <prefix>orig_host="</prefix>
+      <suffix>"</suffix>
+      <default>*</default>
+      <initialValue>*</initialValue>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Host Investigation by Timeline</title>
+      <viz type="timeline_app.timeline">
+        <search>
+          <query>`threat-hunting-index` $token_host$ | eval attack_tactics = mvindex(attack_tactics, 0) | eval sort_value=case(attack_tactics=="initial-access",1,attack_tactics=="execution",2,attack_tactics=="persistence",3,attack_tactics=="privilege-escalation",4,attack_tactics=="defense-evasion",5,attack_tactics=="credential-access",6,attack_tactics=="discovery",7,attack_tactics=="lateral-movement",8,attack_tactics=="collection",9,attack_tactics=="command-and-control",10,attack_tactics=="exfiltration",11,attack_tactics=="impact",12) | sort sort_value  | table _time attack_tactics attack_technique</query>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="timeline_app.timeline.axisTimeFormat">SECONDS</option>
+        <option name="timeline_app.timeline.colorMode">categorical</option>
+        <option name="timeline_app.timeline.maxColor">#DA5C5C</option>
+        <option name="timeline_app.timeline.minColor">#FFE8E8</option>
+        <option name="timeline_app.timeline.numOfBins">6</option>
+        <option name="timeline_app.timeline.tooltipTimeFormat">SECONDS</option>
+        <option name="timeline_app.timeline.useColors">1</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </viz>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Triggered Rules by Host</title>
+      <table>
+        <search>
+          <query>`threat-hunting-index` $token_host$ | fillnull value=null level | stats count by orig_host, attack_ID, name, attack_technique, level | eval sort_chain=case(level=="critical",1,level=="high",2,level=="medium",3,level=="low",4)  | sort sort_chain | fields - sort_chain</query>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <format type="color" field="level">
+          <colorPalette type="map">{"critical":#DC4E41,"high":#F1813F,"medium":#F8BE34}</colorPalette>
+        </format>
+        <drilldown>
+          <link target="_blank">search?q=%60threat-hunting-index%60%20orig_host=$row.orig_host$&amp;earliest=$token_time.earliest$&amp;latest=$token_time.latest$</link>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+</form>
