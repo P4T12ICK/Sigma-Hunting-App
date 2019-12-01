@@ -14,7 +14,7 @@
       <title>Initial Access</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=initial-access | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=initial-access | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -45,7 +45,7 @@
       <title>Execution</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=execution | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=execution | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -76,7 +76,7 @@
       <title>Persistence</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=persistence | timechart span=24h count(attack_tactics)  | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=persistence | timechart span=24h count  | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -107,7 +107,7 @@
       <title>Privilege Escalation</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=privilege-escalation | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=privilege-escalation | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -138,7 +138,7 @@
       <title>Defense Evasion</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=defense-evasion | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=defense-evasion | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -169,7 +169,7 @@
       <title>Credential Access</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=credential-access | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=credential-access | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -202,7 +202,7 @@
       <title>Discovery</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=discovery | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=discovery | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -233,7 +233,7 @@
       <title>Lateral Movement</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=lateral-movement | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=lateral-movement | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -264,7 +264,7 @@
       <title>Collection</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=collection | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=collection | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -295,7 +295,7 @@
       <title>Command and Control</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=command-and-control | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=command-and-control | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -326,7 +326,7 @@
       <title>Exfiltration</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=exfiltration | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=exfiltration | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -357,7 +357,7 @@
       <title>Impact</title>
       <single>
         <search>
-          <query>`threat-hunting-index` attack_tactics=impact | timechart span=24h count(attack_tactics) | appendpipe [stats count | where count=0]</query>
+          <query>`threat-hunting-index` attack_tactics=impact | timechart span=24h count | appendpipe [stats count | where count=0]</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -390,7 +390,7 @@
       <title>Triggered Rules by Mitre ATT&amp;CK Technique</title>
       <table>
         <search>
-          <query>`threat-hunting-index` | stats values(attack_technique) as attack_technique values(attack_tactics) as attack_tactics values(name) AS "Triggered Rules" count(name) as count by attack_ID | sort - count</query>
+          <query>`threat-hunting-index` | stats values(attack_technique) as attack_technique values(attack_tactics) as attack_tactics values(search_name) AS search_name count(search_name) as count by attack_ID | sort - count</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -412,7 +412,7 @@
       <title>Triggered Rules by Level</title>
       <table>
         <search>
-          <query>`threat-hunting-index` | fillnull value=null level | stats count by orig_host, attack_ID, name, attack_technique, level | eval sort_chain=case(level=="critical",1,level=="high",2,level=="medium",3,level=="low",4)  | sort sort_chain | fields - sort_chain</query>
+          <query>`threat-hunting-index` | fillnull value=null level | stats count by orig_host, attack_ID, search_name, attack_technique, level | eval sort_chain=case(level=="critical",1,level=="high",2,level=="medium",3,level=="low",4)  | sort sort_chain | fields - sort_chain</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
