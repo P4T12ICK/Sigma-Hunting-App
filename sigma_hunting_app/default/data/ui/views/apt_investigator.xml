@@ -15,7 +15,7 @@
       <map>
         <title>Triggered Alerts -&gt; Mitre ATT&amp;CK Technique -&gt; potential APT Groups -&gt; Countries</title>
         <search>
-          <query>`threat-hunting-index` | stats dc(name) AS "Distinct Count" by threat_actors | sort - "Distinct Count" |  lookup mitre_enrichment_apt_country threat_actors AS threat_actors | search country=* | stats sum("Distinct Count") AS "Distinct Count" by country | sort - "Distinct Count" | geom geo_countries featureIdField="country"</query>
+          <query>`threat-hunting-index` | stats dc(search_name) AS "Distinct Count" by threat_actors | sort - "Distinct Count" |  lookup mitre_enrichment_apt_country threat_actors AS threat_actors | search country=* | stats sum("Distinct Count") AS "Distinct Count" by country | sort - "Distinct Count" | geom geo_countries featureIdField="country"</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -54,7 +54,7 @@
       <title>Distinct Count of Triggered Rules by APT Group</title>
       <table>
         <search>
-          <query>`threat-hunting-index` | stats values(attack_technique) AS "Attack Techniques" values(attack_tactics) AS "Attack Tactics" values(name) AS Rules dc(name) AS "Distinct Count" by threat_actors |  lookup mitre_enrichment_apt_country threat_actors AS threat_actors | sort - "Distinct Count" | rename country AS Country | table threat_actors "Attack Techniques" "Attack Tactics" Rules Country  "Distinct Count"</query>
+          <query>`threat-hunting-index` | stats values(attack_technique) AS "Attack Techniques" values(attack_tactics) AS "Attack Tactics" values(search_name) AS Rules dc(search_name) AS "Distinct Count" by threat_actors |  lookup mitre_enrichment_apt_country threat_actors AS threat_actors | sort - "Distinct Count" | rename country AS Country | table threat_actors "Attack Techniques" "Attack Tactics" Rules Country  "Distinct Count"</query>
           <earliest>$time_picker.earliest$</earliest>
           <latest>$time_picker.latest$</latest>
           <sampleRatio>1</sampleRatio>

@@ -2,7 +2,7 @@
 A Splunk App containing Sigma detection rules, which can be updated dynamically from a Git repository.
 
 ## Motivation
-Most of the modern Security Operations Center (SOC) store the detection rules in a central repository such as GitHub or GitLab as part of the Dev Sec Ops development approach. Furthermore, [Sigma](https://github.com/Neo23x0/sigma) as a generic signature description language is used in many SOCs. Updating the Sigma rules from a Sigma repository to Splunk was still a manual time-consuming task. The Sigma Hunting App solves that problem by providing a dedicated Splunk App, which can be used to dynamically update Sigma detection rules from a Git repository. The triggered detection rules are stored in a separate threat-hunting index helping the SOC Analyst in their investigations. Additionally, the Sigma Hunting App for Splunk uses information of the [Mitre ATT&CK Matrix](https://attack.mitre.org/matrices/enterprise/) to enrich the triggered detection rules. 
+Most of the modern Security Operations Center (SOC) store the detection rules in a central repository such as GitHub or GitLab as part of the Dev Sec Ops development approach. Furthermore, [Sigma](https://github.com/Neo23x0/sigma) as a generic signature description language is used in many SOCs. Updating the Sigma rules from a Sigma repository to Splunk was still a manual time-consuming task. The Sigma Hunting App solves that problem by providing a dedicated Splunk App, which can be used to dynamically update Sigma detection rules from a Git repository. The triggered detection rules are stored in a separate threat-hunting index helping the SOC Analyst in their investigations. Additionally, the Sigma Hunting App for Splunk uses information of the [Mitre ATT&CK Matrix](https://attack.mitre.org/matrices/enterprise/) to enrich the triggered detection rules.
 
 The Sigma Hunting App for Splunk provides the following features:
 - dynamically update of Sigma detection rules from a remote Git repository
@@ -36,9 +36,6 @@ The Host Investigator supports you to perfrom investigation for a specific host.
 The APT investigator tries to identify, which threat actor is attacking you by using the information of the triggered detection rules:
 ![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_APT_investigator.png)
 
-The Lateral Movement Investigator uses the information of triggered alerts in combination with firewall data in order to find lateral movement. It identifies, if the same detection rule was triggered for two host and there was a network connection between them:
-![](https://github.com/P4T12ICK/Sigma-Hunting-App/blob/master/pictures/sigma_hunting_app_lateral_movement_investigator.png)
-
 
 ## Installation
 Installation steps are described in detail in the [wiki](https://github.com/P4T12ICK/Sigma-Hunting-App/wiki/Installation-Sigma-Hunting-App).
@@ -58,7 +55,3 @@ I need to say thank you to some people, who supported me directly and indirectly
 - Andrii Bezverkhyi: for supporting with Splunk questions
 - Chris Long: for Detection Lab
 - SwiftOnSecrity: for the Sysmon Config, which I used in all of my tests
-
-
-
-

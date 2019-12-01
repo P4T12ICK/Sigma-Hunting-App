@@ -2,7 +2,6 @@
   <view name="security_posture" default='true' />
   <view name="host_investigator" />
   <view name="apt_investigator" />
-  <view name="lateral_movement_investigator" />
   <view name="update" />
   <view name="search" />
 </nav>

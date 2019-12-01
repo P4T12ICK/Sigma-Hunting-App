@@ -46,7 +46,7 @@
       <title>Triggered Rules by Host</title>
       <table>
         <search>
-          <query>`threat-hunting-index` $token_host$ | fillnull value=null level | stats count by orig_host, attack_ID, name, attack_technique, level | eval sort_chain=case(level=="critical",1,level=="high",2,level=="medium",3,level=="low",4)  | sort sort_chain | fields - sort_chain</query>
+          <query>`threat-hunting-index` $token_host$ | fillnull value=null level | stats count by orig_host, attack_ID, search_name, attack_technique, level | eval sort_chain=case(level=="critical",1,level=="high",2,level=="medium",3,level=="low",4)  | sort sort_chain | fields - sort_chain</query>
           <earliest>$token_time.earliest$</earliest>
           <latest>$token_time.latest$</latest>
           <sampleRatio>1</sampleRatio>
