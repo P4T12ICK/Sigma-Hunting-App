@@ -1,0 +1,4 @@
+[submodule "sigma_hunting_app/Sigma2SplunkAlert"]
+	path = sigma_hunting_app/Sigma2SplunkAlert
+	url = https://github.com/P4T12ICK/Sigma2SplunkAlert.git
+	branch = sigma-hunting-app
